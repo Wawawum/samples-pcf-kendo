@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "pcf-scripts build"
+		},
+		{
+			"type": "npm",
+			"script": "rebuild",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: rebuild",
+			"detail": "pcf-scripts rebuild"
+		},
+		{
+			"type": "shell",
+			"group": "test",
+			"label": "start KendoPercentageControl",
+			"command": "node .\\node_modules\\pcf-start\\bin\\pcf-start.js --watch --codePath .\\out\\controls\\KendoPercentageControl\\",
+			"detail": "Start the harness"
+		},
+		,
+		{
+			"type": "shell",
+			"group": "test",
+			"label": "start KendoColorPalette",
+			"command": "node .\\node_modules\\pcf-start\\bin\\pcf-start.js --watch --codePath .\\out\\controls\\KendoColorPalette\\",
+			"detail": "Start the harness"
+		}
+	]
+}
