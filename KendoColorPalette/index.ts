@@ -1,4 +1,7 @@
 import {IInputs, IOutputs} from "./generated/ManifestTypes";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { ColorPalette } from "./components/ColorPalette";
 
 export class KendoColorPalette implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 	container: HTMLDivElement;
@@ -32,7 +35,12 @@ export class KendoColorPalette implements ComponentFramework.StandardControl<IIn
 	public updateView(context: ComponentFramework.Context<IInputs>): void
 	{
 		// Add code to update control view
-		this.container.textContent = context.parameters.sampleProperty.formatted ?? "";
+		ReactDOM.render(
+			React.createElement(ColorPalette, {
+				value: context.parameters.sampleProperty.raw
+			}),
+			this.container
+		);
 	}
 
 	/**
