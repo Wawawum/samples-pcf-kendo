@@ -9,7 +9,7 @@ export class PercentageControl extends React.Component<PercentageControlProps, {
     render() {
 
         return (
-            <div>{this.props.value}%</div>
+            <div>{this.props.value}</div>
         );
     }
 }

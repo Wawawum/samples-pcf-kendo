@@ -1,4 +1,7 @@
 import {IInputs, IOutputs} from "./generated/ManifestTypes";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { PercentageControl } from "./components/PercentageControl";
 
 export class KendoPercentageControl implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 	container: HTMLDivElement;
@@ -32,7 +35,12 @@ export class KendoPercentageControl implements ComponentFramework.StandardContro
 	public updateView(context: ComponentFramework.Context<IInputs>): void
 	{
 		// Add code to update control view
-		this.container.textContent = context.parameters.sampleProperty.formatted ?? "";
+		ReactDOM.render(
+			React.createElement(PercentageControl, {
+				value: context.parameters.sampleProperty.raw
+			}),
+			this.container
+		);
 	}
 
 	/**
