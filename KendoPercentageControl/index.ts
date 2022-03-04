@@ -5,6 +5,8 @@ import { PercentageControl } from "./components/PercentageControl";
 
 export class KendoPercentageControl implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 	container: HTMLDivElement;
+	notifyOutputChanged: () => void;
+	value: number | null;
 
 	/**
 	 * Empty constructor.
@@ -25,6 +27,7 @@ export class KendoPercentageControl implements ComponentFramework.StandardContro
 	{
 		// Add control initialization 
 		this.container = container;
+		this.notifyOutputChanged = notifyOutputChanged;
 	}
 
 
@@ -37,7 +40,11 @@ export class KendoPercentageControl implements ComponentFramework.StandardContro
 		// Add code to update control view
 		ReactDOM.render(
 			React.createElement(PercentageControl, {
-				value: context.parameters.sampleProperty.raw
+				value: context.parameters.sampleProperty.raw,
+				onChange: (value) => {
+					this.value = value;
+					this.notifyOutputChanged();
+				}
 			}),
 			this.container
 		);
@@ -49,7 +56,9 @@ export class KendoPercentageControl implements ComponentFramework.StandardContro
 	 */
 	public getOutputs(): IOutputs
 	{
-		return {};
+		return {
+			sampleProperty: this.value ?? undefined
+		};
 	}
 
 	/**

@@ -10,7 +10,11 @@
     "refreshTypes": "pcf-scripts refreshTypes"
   },
   "dependencies": {
-    "@progress/kendo-licensing": "^1.2.2"
+    "@progress/kendo-drawing": "^1.16.3",
+    "@progress/kendo-licensing": "^1.2.2",
+    "@progress/kendo-react-inputs": "^5.1.0",
+    "@progress/kendo-react-intl": "^5.1.0",
+    "@progress/kendo-theme-bootstrap": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^16.4",
