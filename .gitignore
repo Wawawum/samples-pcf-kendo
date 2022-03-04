@@ -3,6 +3,8 @@
 # kendo license
 kendo-ui-license.txt
 
+.vscode
+
 # dependencies
 /node_modules
 
